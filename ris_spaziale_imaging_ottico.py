@@ -48,7 +48,7 @@ ROI /= np.max(ROI)
 
 #conversione pixel lunghezza
 pixel_mm = 0.341 #mm
-
+"""
 ROI_profile = ROI 
 y_pixel = np.linspace(0, np.shape(ROI)[0], np.shape(ROI)[0])
 
@@ -79,7 +79,7 @@ plt.ylabel("Ampiezza")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+"""
 # Frequenze spaziali (es: cicli/mm)
 M = 1.1935 #fattore di magnificazione
 frequenze = np.array([0.25 ,0.280, 0.315, 0.353, 0.397, 0.445, 
@@ -90,8 +90,9 @@ frequenze /= M
 
 # Intensità max/min misurate su ogni gruppo di barre (ipotetiche)
 ffile = r"C:\Users\emili\Desktop\magistrale\LabMed\imaging_ottico\intensita_USAF.cvs"
-df = pd.read_csv(ffile, skiprows=1,delimiter="\t", names=["column","area", "media", "min", "max"])
-
+ffile = r"C:\Users\emili\Desktop\magistrale\LabMed\imaging_ottico\intensita_USAF1.cvs"
+#df = pd.read_csv(ffile, skiprows=1,delimiter="\t", names=["column","area", "media", "min", "max"])
+df = pd.read_csv(ffile, skiprows=1,delimiter="\t", names=["column","area", "media", "min", "max", "angle", "length"])
 I_max = np.array(df["max"]).astype(float)/df["max"][0]
 I_min = np.array(df["min"]).astype(float)/df["max"][0]
 # CTFS
